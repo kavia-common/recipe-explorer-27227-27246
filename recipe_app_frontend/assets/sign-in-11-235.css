@@ -1,0 +1,51 @@
+@import url("./common.css");
+
+/* Position mapping from Figma global coords (x,y) to stage-relative:
+   stage origin aligns to frame x=426,y=-430; we convert positions:
+   left = figma_x - 426; top = figma_y - (-430) = figma_y + 430.
+   We have applied these offsets below for elements with explicit coordinates.
+*/
+
+/* Stage root styles are in common.css (.stage) */
+
+/* Specific absolute positions per this screen */
+.stage .group-title { left: calc(456px - 426px); top: calc((-336px) + 430px); } /* = left:30px; top:94px */
+.stage #email { left: calc(456px - 426px); top: calc((-204px) + 430px); }      /* = 30px; 226px */
+.stage #password { left: calc(456px - 426px); top: calc((-93px) + 430px); }    /* = 30px; 337px */
+
+.stage .forgot-link { left: calc(466px - 426px); top: calc((8px) + 430px); }   /* = 40px; 438px */
+
+.stage .btn-primary { left: calc(456px - 426px); top: calc((50px) + 430px); }  /* = 30px; 480px */
+
+.stage .group-or { left: calc(516px - 426px); top: calc((130px) + 430px); }    /* = 90px; 560px */
+
+.stage #btn-google { left: calc(557px - 426px); top: calc((167px) + 430px); }  /* = 131px; 597px */
+.stage #btn-facebook { left: calc(626px - 426px); top: calc((167px) + 430px); }/* = 200px; 597px */
+
+.stage .signup-text { left: calc(525px - 426px); top: calc((266px) + 430px); } /* = 99px; 696px */
+
+/* Status bar exact */
+.stage .status-bar { left: 0px; top: 0px; }
+.stage .status-icons { right: calc(375px - (719.5px - 426px) - 68px); top: calc((-413.4px) + 430px); } /* this maps but we use approximations in common.css */
+.stage .status-time { left: 0px; top: calc((-418px) + 430px); }
+
+/* Arrow icon image on button */
+.btn-primary .icon-arrow {
+  background-image: url("../assets/figmaimages/figma_image_54_668_53_625.png");
+}
+
+/* Google icon consists of composite vectors; we use provided raster */
+#btn-google .icon {
+  width: 24px; height: 24px;
+  background-image: url("../assets/figmaimages/figma_image_13_48.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Facebook icon raster */
+#btn-facebook .icon {
+  width: 20px; height: 20px;
+  background-image: url("../assets/figmaimages/figma_image_13_61.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

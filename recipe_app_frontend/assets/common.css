@@ -1,0 +1,289 @@
+:root {
+  /* Ocean Professional theme tokens */
+  --color-primary: #2563EB; /* Blue 600 */
+  --color-secondary: #F59E0B; /* Amber 500 */
+  --color-success: #F59E0B; /* From style guide */
+  --color-error: #EF4444;
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+
+  /* Figma design system references used in this screen */
+  --figma-white: #ffffff; /* color_ffffff */
+  --figma-black: #000000; /* color_000000 */
+  --figma-neutral-121212: #121212; /* color_121212 */
+  --figma-border: #d9d9d9; /* color_d9d9d9 */
+  --figma-accent-amber: #ff9c00; /* color_ff9c00 */
+  --figma-btn-green: #129575; /* style_11 background */
+
+  /* Typography sizes from typographies referenced */
+  --font-family-base: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Typography refs */
+  --typo-hello-size: 30px;    /* typo_60 */
+  --typo-hello-line: 45px;
+  --typo-hello-weight: 600;
+
+  --typo-subtitle-size: 20px; /* typo_61 */
+  --typo-subtitle-line: 30px;
+  --typo-subtitle-weight: 400;
+
+  --typo-link-size: 11px;     /* typo_62 and 63 are 11pt */
+  --typo-link-line: 16.5px;
+
+  --typo-input-label-size: 14px;  /* typo_66 */
+  --typo-input-label-line: 21px;
+  --typo-input-placeholder-size: 11px; /* typo_65 */
+  --typo-input-placeholder-line: 16.5px;
+
+  --typo-button-size: 16px;  /* typo_58 */
+  --typo-button-line: 24px;
+  --typo-status-time-size: 15px; /* typo_67 */
+
+  /* Spacing and radii from Figma styles */
+  --radius-10: 10px; /* style_11, style_30 */
+  --radius-30: 30px; /* style_10 root frame */
+  --radius-100: 100px; /* style_32 pill */
+
+  /* Shadows mapped from design system shadows used */
+  --shadow-card-0: 0 0 5px 3px #696969; /* shadow_0 approximation */
+  --shadow-elev-3: 0 0 20px 0 #000000; /* shadow_3 */
+  --shadow-soft: 0 8px 25px 0 #202020; /* shadow_1 */
+
+  /* Layout base */
+  --screen-width: 375px;
+  --screen-height: 812px;
+
+  /* Ocean subtle gradient overlay (optional background depth) */
+  --bg-gradient: linear-gradient(180deg, rgba(37,99,235,0.06) 0%, rgba(249,250,251,0.0) 60%);
+}
+
+/* Reset and base */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+}
+
+/* Stage to maintain pixel grid while being responsive */
+.stage {
+  position: relative;
+  width: var(--screen-width);
+  height: var(--screen-height);
+  margin: 0 auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-30);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  background-image: var(--bg-gradient);
+}
+
+/* Responsive scaler to keep pixel accuracy while fitting viewport */
+.scaler {
+  position: relative;
+  width: 100%;
+  max-width: min(100vw, 480px);
+  margin: 0 auto;
+  padding: 24px 0;
+}
+.scaler-inner {
+  position: relative;
+  width: var(--screen-width);
+  height: var(--screen-height);
+  margin: 0 auto;
+  transform-origin: top center;
+}
+
+/* Absolute utilities mapped from coordinates (we place elements exactly) */
+.abs { position: absolute; }
+
+/* Status bar approximations */
+.status-bar {
+  left: 0px; top: 0px;
+  width: 375px; height: 44px;
+}
+.status-icons { position: absolute; right: 15.5px; top: 16.6px; width: 68px; height: 13px; }
+.status-time { position: absolute; left: 0px; top: 12px; width: 180px; height: 22px; }
+.status-time .time {
+  position: absolute; left: 29.5px; top: 2px;
+  font-size: var(--typo-status-time-size);
+  font-weight: 500;
+  line-height: 17.9px;
+  letter-spacing: -0.165px;
+  color: #303030;
+}
+
+/* Title group */
+.group-title { left: 30px; top: 94px; width: 155px; height: 75px; }
+.title-hello {
+  position: absolute; left: 0px; top: 0px; width: 155px; height: 45px;
+  font-size: var(--typo-hello-size);
+  line-height: var(--typo-hello-line);
+  font-weight: var(--typo-hello-weight);
+  color: var(--figma-black);
+}
+.title-welcome {
+  position: absolute; left: 0px; top: 45px; width: 155px; height: 30px;
+  font-size: var(--typo-subtitle-size);
+  line-height: var(--typo-subtitle-line);
+  font-weight: var(--typo-subtitle-weight);
+  color: var(--figma-neutral-121212);
+}
+
+/* Input field components */
+.input-field { width: 315px; height: 81px; left: 30px; }
+.input-rect {
+  position: absolute; left: 0px; width: 315px; height: 55px;
+  border-radius: var(--radius-10);
+  border: 1.5px solid var(--figma-border);
+  background: transparent;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.input-label {
+  position: absolute; left: 0px;
+  font-size: var(--typo-input-label-size);
+  line-height: var(--typo-input-label-line);
+  font-weight: 400;
+  color: var(--figma-neutral-121212);
+}
+.input-placeholder {
+  position: absolute;
+  left: 20px;
+  font-size: var(--typo-input-placeholder-size);
+  line-height: var(--typo-input-placeholder-line);
+  font-weight: 400;
+  color: var(--figma-border);
+}
+
+/* Exact verticals from JSON */
+#email .input-label { top: 0px; height: 21px; }
+#email .input-rect { top: 26px; }
+#email .input-placeholder { top: 45px; }
+
+#password .input-label { top: 0px; height: 21px; }
+#password .input-rect { top: 26px; }
+#password .input-placeholder { top: 45px; }
+
+/* Focus styling (Ocean accent) */
+.input-rect:focus,
+.input-rect:focus-visible,
+.input-rect.is-focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Big primary button (style_11 mapped, but themed to Ocean primary) */
+.btn-primary {
+  position: absolute; left: 30px; top: 480px; /* 50 from root top; adjusted to screen coords: y=50 relative to frame origin (0) + stage offset handled by absolute stage */
+  width: 315px; height: 60px;
+  border-radius: var(--radius-10);
+  border: none;
+  background: var(--color-primary);
+  color: var(--figma-white);
+  font-size: var(--typo-button-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--typo-button-line);
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  transition: transform 150ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+  background: #1d4ed8; /* darker */
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary .icon-arrow {
+  width: 20px; height: 20px; display: inline-block; background-size: cover; background-repeat: no-repeat;
+}
+
+/* Or sign in with line group */
+.group-or {
+  position: absolute; left: 90px; top: 560px; width: 195px; height: 17px;
+}
+.group-or .line-left, .group-or .line-right {
+  position: absolute; top: 9px; height: 0px; border-top: 1px solid var(--figma-border); width: 50px;
+}
+.group-or .line-left { left: 0px; }
+.group-or .line-right { right: 0px; }
+.group-or .label {
+  position: absolute; left: 57px; top: 0px; width: 81px; height: 17px;
+  font-size: var(--typo-link-size);
+  line-height: var(--typo-link-line);
+  font-weight: 500;
+  color: var(--figma-border);
+  text-align: left;
+}
+
+/* Social buttons */
+.social-btn {
+  position: absolute; width: 44px; height: 44px; top: 597px; /* y=167 in figma; relative mapping done below; we'll position absolute as per figma coordinates from stage origin */
+  background: var(--figma-white);
+  border-radius: var(--radius-10);
+  box-shadow: var(--shadow-card-0);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 150ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+.social-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
+#btn-google { left: 131px; }  /* x=557-426=131 */
+#btn-facebook { left: 200px; } /* x=626-426=200 */
+
+/* Sign up link */
+.signup-text {
+  position: absolute; left: 99px; top: 696px; width: 177px; height: 17px;
+  font-size: var(--typo-link-size);
+  line-height: var(--typo-link-line);
+  font-weight: 500;
+  color: var(--figma-black);
+}
+.signup-text .cta {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.signup-text .cta:hover { text-decoration: underline; }
+
+/* Forgot password link */
+.forgot-link {
+  position: absolute; left: 40px; top: 438px; width: 97px; height: 17px;
+  font-size: var(--typo-link-size);
+  line-height: var(--typo-link-line);
+  font-weight: 400;
+  color: var(--figma-accent-amber);
+  text-decoration: none;
+}
+
+/* Home indicator */
+.home-indicator {
+  position: absolute; left: 0px; bottom: 14px; width: 375px; height: 34px;
+}
+.home-indicator .pill {
+  position: absolute; left: 135px; top: 21px; width: 135px; height: 5px;
+  background: var(--figma-neutral-121212);
+  border-radius: var(--radius-100);
+  opacity: 1;
+}
+
+/* Accessible hidden label text for inputs */
+.visually-hidden {
+  position: absolute!important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Responsive scaling: fit width but keep 375x812 ratio */
+@media (max-width: 420px) {
+  .scaler { padding: 12px 0; }
+}

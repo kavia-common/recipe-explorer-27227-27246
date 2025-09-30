@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In - 11:235</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" as="style" href="./common.css">
+  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="./sign-in-11-235.css">
+</head>
+<body>
+  <div class="scaler">
+    <div class="scaler-inner">
+      <div class="stage" role="region" aria-label="Sign In screen">
+
+        <!-- Status Bar -->
+        <div class="status-bar abs">
+          <div class="status-icons"></div>
+          <div class="status-time">
+            <div class="time">19:27</div>
+          </div>
+        </div>
+
+        <!-- Title Group -->
+        <div class="group-title abs">
+          <div class="title-hello">Hello,</div>
+          <div class="title-welcome">Welcome Back!</div>
+        </div>
+
+        <!-- Email Input -->
+        <form id="signin-form" novalidate>
+          <div id="email" class="input-field abs" role="group" aria-labelledby="email-label">
+            <label id="email-label" class="input-label" for="email-input">Email</label>
+            <input id="email-input" name="email" type="email" class="input-rect" placeholder="" aria-describedby="email-placeholder">
+            <div id="email-placeholder" class="input-placeholder">Enter Email</div>
+          </div>
+
+          <!-- Password Input -->
+          <div id="password" class="input-field abs" role="group" aria-labelledby="password-label">
+            <label id="password-label" class="input-label" for="password-input">Enter Password</label>
+            <input id="password-input" name="password" type="password" class="input-rect" placeholder="" aria-describedby="password-placeholder" minlength="6">
+            <div id="password-placeholder" class="input-placeholder">Enter Password</div>
+          </div>
+
+          <!-- Forgot Password -->
+          <a href="#" class="forgot-link abs">Forgot Password?</a>
+
+          <!-- Primary Sign In Button -->
+          <button type="submit" class="btn-primary">
+            <span class="label">Sign In</span>
+            <span class="icon-arrow" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <!-- Or sign in with -->
+        <div class="group-or abs">
+          <div class="line-left"></div>
+          <div class="line-right"></div>
+          <div class="label">Or Sign in With</div>
+        </div>
+
+        <!-- Social Buttons -->
+        <div id="btn-google" class="social-btn abs" role="button" aria-label="Sign in with Google" tabindex="0">
+          <span class="icon" aria-hidden="true"></span>
+        </div>
+        <div id="btn-facebook" class="social-btn abs" role="button" aria-label="Sign in with Facebook" tabindex="0">
+          <span class="icon" aria-hidden="true"></span>
+        </div>
+
+        <!-- Sign up -->
+        <div class="signup-text abs">
+          Don’t have an account?
+          <a class="cta" href="#">Sign up</a>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="home-indicator abs" aria-hidden="true">
+          <div class="pill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
